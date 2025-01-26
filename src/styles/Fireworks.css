@@ -1,0 +1,132 @@
+.fireworks-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(180deg, #000000 0%, #220000 100%);
+  z-index: 1;
+}
+
+.firework {
+  position: absolute;
+  bottom: -10px;
+  width: 6px;
+  height: 6px;
+  animation: shoot 2s ease-out infinite;
+}
+
+.firework:nth-child(1) { left: 20%; animation-delay: 0s; }
+.firework:nth-child(2) { left: 40%; animation-delay: 0.4s; }
+.firework:nth-child(3) { left: 60%; animation-delay: 0.8s; }
+.firework:nth-child(4) { left: 80%; animation-delay: 1.2s; }
+
+.firework:nth-child(1)::before { background: radial-gradient(circle, #ff0 0%, #ff3300 30%, rgba(255, 0, 0, 0) 60%); }
+.firework:nth-child(2)::before { background: radial-gradient(circle, #00ff00 0%, #00cc00 30%, rgba(0, 255, 0, 0) 60%); }
+.firework:nth-child(3)::before { background: radial-gradient(circle, #ff00ff 0%, #cc00cc 30%, rgba(255, 0, 255, 0) 60%); }
+.firework:nth-child(4)::before { background: radial-gradient(circle, #00ffff 0%, #00cccc 30%, rgba(0, 255, 255, 0) 60%); }
+
+.firework::before, .firework::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  box-shadow: -120px -218.66667px blue, 248px -16.66667px #00ff84, 190px 16.33333px #002bff,
+    -113px -308.66667px #ff009d, -109px -287.66667px #ffb300, -50px -313.66667px #ff006e,
+    226px -31.66667px #ff4000, 180px -351.66667px #ff00d0, -12px -338.66667px #00f6ff,
+    220px -388.66667px #99ff00, -69px -27.66667px #ff0400, -111px -339.66667px #6200ff,
+    155px -237.66667px #00ddff, -152px -380.66667px #00ffd0, -50px -37.66667px #00ffdd;
+  animation: firework-explosion 2s ease-out infinite;
+}
+
+.spark {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: spark 1.5s ease-out forwards;
+}
+
+.spark::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(0, -50vh);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(0, -60vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, -60vh);
+    opacity: 0;
+  }
+}
+
+@keyframes firework-explosion {
+  0% {
+    transform: translate(0, 0);
+    width: 6px;
+    height: 6px;
+    opacity: 1;
+  }
+  50% {
+    width: 6px;
+    height: 6px;
+    opacity: 1;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+  }
+}
+
+@keyframes explode {
+  0% {
+    width: 4px;
+    height: 4px;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+@keyframes spark {
+  0% {
+    transform: rotate(0deg) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0;
+  }
+}
+
+.countdown {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  font-size: 5rem;
+  text-shadow: 0 0 20px #ff0000, 0 0 40px #ffdd55;
+}

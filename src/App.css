@@ -1,0 +1,70 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.slide {
+  font-size: 2rem;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.visible {
+    opacity: 1;
+}
+.slide.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.countdown {
+    font-size: 3rem;
+}
+
+.slides-container {
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .slides-container {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .slides-container {
+    padding: 15px;
+  }
+}
+
+/* Add smooth transitions for better mobile experience */
+.slide-content {
+  transition: all 0.3s ease;
+}
+
+/* Ensure text is readable on all devices */
+.slide-text {
+  font-size: clamp(16px, 4vw, 24px);
+  line-height: 1.5;
+  padding: 10px;
+}
+
+/* Optimize for different screen heights */
+@media screen and (max-height: 600px) {
+  .app {
+    padding-top: 10px;
+  }
+}
