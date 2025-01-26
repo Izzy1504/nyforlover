@@ -18,6 +18,8 @@ function App() {
         {content: "Năm mới anh chúc em bé tuổi mới thật là trưởng thành, vui vẻ hong bị sầu, buồn và đặc biệt phải ở bên anh mãi nheee :3"},
         {content: "Àaa còn nữa, emm phải học giỏi nè, điểm A thật nhìu và có cơ hội việc làmmm siu cấp đỉnh nóc kịch trần nhenn :3"},
         {content: "Anhh yêu vợ anh nhất trên đời này luôn ❤ ❣ ☼ ❤️‍🔥 😻  💖 🧧 🎇 , chúc em có một năm mới thật nhiều niềm vui và hạnh phúc nhaaa ❤️‍🔥 🎇 🎆 🎉"},
+        {content: "Vợ yêu của anh ơiiii, anh yêu em nhiều lắm lunn nạaa :3"},
+        {content: "MADE BY KHOI MINH DOAN "},
 
 
     ];
