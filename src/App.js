@@ -40,46 +40,47 @@ function App() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          minHeight: '-webkit-fill-available', // Thêm này cho iOS
-          height: '100vh',
+          minHeight: '100vh',
           width: '100%',
-          overflow: 'hidden',
-          padding: '10px',
-          WebkitOverflowScrolling: 'touch' // Thêm này cho iOS smooth scroll
+          overflow: 'hidden'
         }}>
-          <BackgroundMusic playOnMount={startMusic} />
           <Fireworks />
-          {currentSlideIndex === -1 ?
-            <Countdown targetDate={new Date(new Date().getFullYear(), 11, 31, 23, 59, 59)} onComplete={onCountdownComplete}/>
-            :
-          <>
-            {
-              slides.map((slide, index) => (
-                <div 
-                  key={index}
-                  className="slides-container" 
-                  style={{
-                    display: currentSlideIndex === index ? 'block' : 'none',
-                    maxWidth: '90vw',
-                    width: '100%',
-                    margin: '0 auto',
-                    wordBreak: 'break-word',
-                    overflowWrap: 'break-word',
-                    WebkitTouchCallout: 'none', // Disable callout
-                    WebkitUserSelect: 'none', // Disable selection
-                    paddingBottom: '50px' // Add space for iOS bottom bar
-                  }}
-                >
-                  <Slide 
-                    content={slide.content} 
-                    duration={25} 
-                    onSlideChange={handleSlideChange}
-                  />
-                </div>
-              ))
-            }
-          </>
-        }
+          <div style={{
+            position: 'relative',
+            zIndex: 2,
+            padding: '20px',
+            textAlign: 'center',
+            color: 'white'
+          }}>
+            <BackgroundMusic playOnMount={startMusic} />
+            {currentSlideIndex === -1 ? (
+              <Countdown 
+                targetDate={new Date(new Date().getFullYear(), 11, 31, 23, 59, 59)} 
+                onComplete={onCountdownComplete}
+              />
+            ) : (
+              <>
+                {slides.map((slide, index) => (
+                  <div 
+                    key={index}
+                    className="slides-container" 
+                    style={{
+                      display: currentSlideIndex === index ? 'block' : 'none',
+                      maxWidth: '90vw',
+                      margin: '0 auto',
+                      wordBreak: 'break-word'
+                    }}
+                  >
+                    <Slide 
+                      content={slide.content} 
+                      duration={25} 
+                      onSlideChange={handleSlideChange}
+                    />
+                  </div>
+                ))}
+              </>
+            )}
+          </div>
         </div>
     );
 }
