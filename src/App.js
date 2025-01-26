@@ -81,7 +81,7 @@ function App() {
                   >
                     <Slide 
                       content={slide.content} 
-                      duration={25} 
+                      duration={15} 
                       onSlideChange={handleSlideChange}
                     />
                   </div>
