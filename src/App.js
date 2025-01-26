@@ -40,8 +40,12 @@ function App() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          minHeight: '100vh',
-          padding: '10px'
+          minHeight: '-webkit-fill-available', // Thêm này cho iOS
+          height: '100vh',
+          width: '100%',
+          overflow: 'hidden',
+          padding: '10px',
+          WebkitOverflowScrolling: 'touch' // Thêm này cho iOS smooth scroll
         }}>
           <BackgroundMusic playOnMount={startMusic} />
           <Fireworks />
@@ -57,8 +61,13 @@ function App() {
                   style={{
                     display: currentSlideIndex === index ? 'block' : 'none',
                     maxWidth: '90vw',
+                    width: '100%',
                     margin: '0 auto',
-                    wordBreak: 'break-word'
+                    wordBreak: 'break-word',
+                    overflowWrap: 'break-word',
+                    WebkitTouchCallout: 'none', // Disable callout
+                    WebkitUserSelect: 'none', // Disable selection
+                    paddingBottom: '50px' // Add space for iOS bottom bar
                   }}
                 >
                   <Slide 

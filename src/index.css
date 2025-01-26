@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 body {
@@ -14,6 +16,11 @@ body {
   background: #000;
   overflow: hidden;
   min-height: 100vh;
+  min-height: -webkit-fill-available;
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 code {
@@ -23,4 +30,14 @@ code {
 
 #root {
   min-height: 100vh;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+html, body {
+  overscroll-behavior-y: none;
+  overflow: hidden;
+  position: fixed;
 }
