@@ -21,7 +21,7 @@ const FireworksComponent = () => {
       particles: isMobile ? 100 : 200,          // Giảm số hạt trên mobile
       traceLength: isMobile ? 3 : 5,            // Giảm độ dài vệt
       traceSpeed: isMobile ? 8 : 10,            // Giảm tốc độ
-      explosion: isMobile ? 8 : 10,             // Giảm kích thước nổ
+      explosion: isMobile ? 8 : 2,             // Giảm kích thước nổ
       intensity: isMobile ? 50 : 80,            // Giảm cường độ
       flickering: isMobile ? 20 : 30,
       lineStyle: 'round',

@@ -35,24 +35,65 @@
   padding: 20px;
   max-width: 100%;
   margin: 0 auto;
+  font-size: clamp(16px, 4vw, 24px);
+  line-height: 1.6;
+  white-space: pre-wrap;      /* Cho phép xuống dòng tự động */
+  word-wrap: break-word;      /* Ngắt từ khi quá dài */
 }
 
 @media screen and (max-width: 768px) {
   .slides-container {
-    padding: 10px;
-    font-size: 0.9em;
+    padding: 15px;
+    font-size: clamp(14px, 3.5vw, 20px);
+    line-height: 1.4;
+    max-height: 80vh;
+    overflow-y: auto;         /* Cho phép scroll nếu nội dung dài */
+  }
+
+  .slide-content {
+    margin: 10px auto;
+    max-width: 95%;
   }
 }
 
 @media screen and (max-width: 480px) {
   .slides-container {
-    padding: 15px;
+    padding: 10px;
+    font-size: clamp(12px, 3vw, 18px);
   }
 }
 
 /* Add smooth transitions for better mobile experience */
 .slide-content {
   transition: all 0.3s ease;
+  font-size: clamp(20px, 5vw, 32px);  /* Tăng kích thước chữ */
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  animation: fadeIn 0.5s ease-in;
+  overflow-y: auto;
+  max-height: 80vh;
+  padding: 20px;
+  scroll-behavior: smooth;
+  color: #fcaa40;  /* Màu vàng đậm */
+  font-weight: 700;  /* Tăng độ đậm của chữ */
+  text-shadow: 
+    0 0 10px rgba(211, 202, 198, 0.8),
+    0 0 20px rgba(189, 171, 73, 0.6),
+    0 0 30px rgba(255, 215, 0, 0.4);  /* Hiệu ứng phát sáng màu vàng */
+  background: linear-gradient(45deg, #d3c991 0%, #FFF8DC 50%, #fff1a5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: 1px;  /* Tăng khoảng cách chữ */
+}
+
+/* Thêm hiệu ứng hover */
+.slide-content:hover {
+  text-shadow: 
+    0 0 15px rgba(255, 215, 0, 0.9),
+    0 0 25px rgba(240, 228, 163, 0.7),
+    0 0 35px rgba(255, 215, 0, 0.5);
+  transform: scale(1.02);
 }
 
 /* Ensure text is readable on all devices */
@@ -82,4 +123,17 @@
   position: relative;
 }
 
+/* Thêm styles cho emoji và icon */
+.slides-container span[role="img"],
+.slides-container img {
+  display: inline-block;
+  margin: 0 2px;
+  vertical-align: middle;
+}
+
 /* Xóa hoặc comment out các styles khác không cần thiết */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
